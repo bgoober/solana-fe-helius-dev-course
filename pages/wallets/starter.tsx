@@ -24,7 +24,11 @@ const Starter = () => {
   const endpoint = web3.clusterApiUrl("devnet");
 
   // specify which wallets we want the adapater to support
-  const wallets = [new walletAdapterWallets.PhantomWalletAdapter()];
+  const wallets = [new walletAdapterWallets.PhantomWalletAdapter(),
+    new walletAdapterWallets.BitKeepWalletAdapter(),
+    new walletAdapterWallets.LedgerWalletAdapter(),
+    new walletAdapterWallets.SolflareWalletAdapter()
+  ];
 
   // connection context object that is injected into the browser by the wallet
   const { connection } = useConnection();
