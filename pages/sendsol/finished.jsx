@@ -21,6 +21,9 @@ const Finished = () => {
         }
 
         const transaction = new web3.Transaction();
+
+        transaction.recentBlockhash = (await connection.getLatestBlockhash()).blockhash;
+
         const instruction = web3.SystemProgram.transfer({
             fromPubkey: publicKey,
             lamports: amount * web3.LAMPORTS_PER_SOL,
