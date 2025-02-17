@@ -61,6 +61,8 @@ const Finished: FC = () => {
         // create a new `Transaction` object
         const transaction = new web3.Transaction();
 
+        transaction.recentBlockhash = ((await connection.getLatestBlockhash()).blockhash)
+
         // get all accounts that the transaction will interact with
         const [ pda ] = web3.PublicKey.findProgramAddressSync(
             [ publicKey.toBuffer() ],
